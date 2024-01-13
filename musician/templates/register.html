@@ -1,0 +1,98 @@
+<!-- templates/add_student.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adding new student</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+css
+Copy code
+h1 {
+  color: #333333;
+}
+
+form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+a.button {
+  background-color: #008CBA;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+    </style>
+</head>
+<body>
+<h1>Adding new student</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="id_name">Name:</label>
+    <input type="text" id="id_name" name="name" required>
+
+    <label for="id_surname">Surname:</label>
+    <input type="text" id="id_surname" name="surname" required>
+
+    <label for="id_age">Age:</label>
+    <input type="number" id="id_age" name="age" required>
+
+    <label for="id_course">Course:</label>
+    <input type="text" id="id_course" name="course" required>
+
+    <label for="id_tools">Tool:</label>
+    <select id="id_tools" name="tools" required>
+        <option value="guitarac">guitar</option>
+        <option value="flute">flute</option>
+        <option value="violin">violin</option>
+        <option value="drums">drum</option>
+    </select>
+
+    <label for="id_academic_performance">Progress:</label>
+    <input type="number" id="id_academic_performance" name="academic_performance" min="0" max="12" required>
+
+    <label for="id_status">Status:</label>
+    <input type="checkbox" id="id_status" name="status">
+
+    <button type="submit">Save</button>
+    <a class="button" href="http://127.0.0.1:8000/">View Ankets</a>
+</form>
+</body>
+</html>

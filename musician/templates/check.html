@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Анкета</title>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #e0e0e0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    h1 {
+        font-size: 36px;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        width: 400px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #555;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    button[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    a.registration-link {
+        display: block;
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    a.registration-link:hover {
+        background-color: #45a049;
+    }
+
+    .profile-link {
+        font-weight: bold;
+        color: #007bff;
+        text-decoration: none;
+    }
+</style>
+
+</head>
+<body>
+  <h1>ANKETA</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {% for profile in profiles%}
+    <p><a href="{{ profile.get_absolut_url }}" class="profile-link">{{ profile }}</a></p>
+
+    {%endfor%}
+     <a href="http://127.0.0.1:8000/register" class="registration-link">Registration</a>
+
+  </form>
+
+</body>
+</html>
